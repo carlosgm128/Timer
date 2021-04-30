@@ -9,3 +9,5 @@ cd Timer
 ```
 
 Abrir el archivo "index.html" con tu navegador de preferencia
+
+![alt screenshot](https://ibb.co/CWdjy4B)
