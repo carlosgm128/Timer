@@ -12,6 +12,7 @@ playBtn.addEventListener("click", playTimer);
 stopBtn.addEventListener("click", stopTimer);
 //functions
 function playTimer() {
+  playing ? alert("its already playing") : "";
   if (!playing) {
     timerId = setInterval(() => {
       if (seconds > 0) {
@@ -24,9 +25,7 @@ function playTimer() {
       horaSpan.innerHTML = `${minutes}:${seconds}`;
     }, 1000);
     playing = !playing;
-    console.log({ timerId, playing });
   }
-  playing || alert("its already playing");
 }
 function stopTimer() {
   //alert("Timer stoped");
@@ -34,18 +33,16 @@ function stopTimer() {
     if (playing === true && timerId !== 0) {
       clearInterval(timerId);
       timerId == 0;
-      stopBtn.innerHTML = "Stop";
+      stopBtn.innerHTML = "Reset";
       playing = !playing;
-      console.log({ timerId, playing }, "if its true");
       return 0;
     }
     if ((playing === false && minutes !== 25) || seconds !== 59) {
-      console.log({ timerId, playing }, "if its false");
       horaSpan.innerHTML = "25:00";
       minutes = 25;
       seconds = 0;
       stopBtn.innerHTML = "Pause";
-      playing = !playing;
+      playing = false;
       return 0;
     }
   }
